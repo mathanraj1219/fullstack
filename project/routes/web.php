@@ -20,3 +20,6 @@ Route::get('/',[MoUController::class,'index']);
 Route::get('/departments',function() {
     return view('department');
 });
+Route::get('/outcomes',function() {
+    return view('outcomes');
+});
