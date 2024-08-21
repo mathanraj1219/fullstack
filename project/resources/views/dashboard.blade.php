@@ -18,8 +18,6 @@
             <li><a href="#">Logout</a></li>
         </ul>
     </nav>
-
-
     <h4>Live MoUs</h4>
     <div class="table-container">
         <table>
@@ -47,8 +45,6 @@
             </tbody>
         </table>
     </div>
-
-
     <h4>Expired MoUs</h4>
     <div class="table-container">
         <table>
