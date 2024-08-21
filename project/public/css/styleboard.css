@@ -1,0 +1,168 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(72, 36, 108);
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+
+nav img {
+    height: 40px;
+    width: auto;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+nav ul li {
+    position: relative;
+    margin-right: 15px;
+}
+
+
+nav ul li:last-child {
+    margin-right: 0;
+}
+
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+
+nav ul li a:hover {
+    background-color: #3700b3;
+}
+
+
+nav ul li ul.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgb(72, 36, 108);
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    z-index: 1;
+}
+
+
+nav ul li:hover > ul.submenu {
+    display: block;
+}
+
+
+nav ul li ul.submenu li {
+    margin: 5px 0;
+}
+
+
+nav ul li ul.submenu li a {
+    padding: 10px 15px;
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+
+nav ul li ul.submenu li a:hover {
+    background-color: #3700b3;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+ 
+  thead th {
+    background-color: #f5f5f5;
+    color: #333;
+    font-weight: bold;
+    text-align: left;
+    padding: 10px;
+  }
+ 
+  tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+ 
+  tbody td {
+    padding: 10px;
+    text-align: left;
+  }
+ 
+  @media screen and (max-width: 600px) {
+    table {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+ 
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+      display: block;
+    }
+ 
+    thead {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+    .table-container {
+      max-height: 250px;
+      overflow-y: auto;
+  }
+ 
+  table {
+      width: 100%;
+      border-collapse: collapse;
+  }
+
+
+  th {
+      background-color: #f2f2f2;
+  }
+    tr {
+      border: 1px solid #ccc;
+    }
+ 
+    td {
+      border: none;
+      border-bottom: 1px solid #eee;
+      position: relative;
+      padding-left: 50%;
+    }
+ 
+    td:before {
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      width: 45%;
+      padding-right: 10px;
+      white-space: nowrap;
+      content: attr(data-th) ":";
+      font-weight: bold;
+    }
+  }
+
