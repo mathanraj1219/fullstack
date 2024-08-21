@@ -1,4 +1,5 @@
-MOU
+MOU - MEMORANDUM OF UNDERSTANDING
+
 Develop a web-based portal to track activities under each Memorandum of Understanding (MOU).
 
 This will provide a central hub for monitoring progress, fostering collaboration, and improving transparency for all involved.
