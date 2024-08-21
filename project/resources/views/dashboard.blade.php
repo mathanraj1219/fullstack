@@ -14,7 +14,6 @@
             <li><a href="{{ url('/') }}">Home</a></li>
             <li><a href="{{ url('/MoUs') }}">MoUs</a></li>
             <li><a href="{{ url('/departments') }}">Departments</a></li>
-            <li><a href="{{ url('/outcomes') }}">Outcomes</a></li>
             <li><a href="#">Logout</a></li>
         </ul>
     </nav>
