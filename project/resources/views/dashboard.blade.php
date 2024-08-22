@@ -31,11 +31,11 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($liveMoUs as $mou)
+                @foreach($livemous as $mou)
                 <tr>
-                    <td>{{ $loop->index + 1 }}</td>
+                    <td>{{ $loop->index+1 }}</td>
                     <td>{{ $mou['name'] }}</td>
-                    <td>{{ $mou['department'] }}</td>
+                    <td>{{ $mou['departments'] }}</td>
                     <td>{{ $mou['company_name'] }}</td>
                     <td>{{ $mou['start_date'] }}</td>
                     <td>{{ $mou['end_date'] }}</td>
@@ -51,21 +51,26 @@
                 <tr>
                     <th>Serial Number</th>
                     <th>Name of the MoU</th>
+                    <th>Departments</th>
                     <th>Company Name</th>
-                    <th>Request Renewal</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($expiredMoUs as $mou)
+                @foreach($expiredmous as $mou)
                 <tr>
-                    <td>{{ $loop->index + 1 }}</td>
+                    <td>{{ $loop->index+1 }}</td>
                     <td>{{ $mou['name'] }}</td>
+                    <td>{{ $mou['departments'] }}</td>
                     <td>{{ $mou['company_name'] }}</td>
-                    <td><a href="#">Request Renewal</a></td>
+                    <td>{{ $mou['start_date'] }}</td>
+                    <td>{{ $mou['end_date'] }}</td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
+    
 </body>
 </html>

@@ -3,27 +3,36 @@
 
 namespace App\Http\Controllers;
 
-
 use Illuminate\Http\Request;
-
+use App\Models\mou;
+use Carbon\Carbon;
 
 class MoUController extends Controller
 {
     
     public function index()
     {
-    
-        $liveMoUs = [
-            ['id' => 1, 'name' => 'MoU 1', 'department' => 'CSE', 'company_name' => 'Company A', 'start_date' => '2023-01-01', 'end_date' => '2025-01-01'],
-            ['id' => 2, 'name' => 'MoU 2', 'department' => 'ECE', 'company_name' => 'Company B', 'start_date' => '2022-05-10', 'end_date' => '2024-05-10'],
-        ];
-
-
-        $expiredMoUs = [
-            ['id' => 1, 'name' => 'MoU 3', 'company_name' => 'Company C'],
-            ['id' => 2, 'name' => 'MoU 4', 'company_name' => 'Company D'],
-        ];
-        return view('dashboard', compact('liveMoUs', 'expiredMoUs'));
+        $today = Carbon::today();
+        $livemous = mou::where('end_date','>=',$today)->get();
+        $expiredmous = mou::where('end_date','<',$today)->get();
+        return view('dashboard', compact('livemous','expiredmous'));
+    }
+    public function selectcolumns()
+    {
+        $data = mou::select('name','type')->get();
+        return view('mou',compact('data'));
+    }
+    public function industrial()
+    {
+        $today = Carbon::today();
+        $data = mou::where('type','industrial') ->where('end_date','>=',$today)->get();
+        return view('industrial',compact('data'));
+    }
+    public function intercollege()
+    {
+        $today = Carbon::today();
+        $data = mou::where('type','intercollege') ->where('end_date','>=',$today)->get();
+        return view('intercollege',compact('data'));
     }
 }
 

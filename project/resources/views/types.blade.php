@@ -17,19 +17,14 @@
             <li><a href="#">Logout</a></li>
         </ul>
     </nav>
-    <div class="dept">
-        <a href="#">CSE</a>
-        <a href="#">CSBS</a>
-        <a href="#">ECE</a>
-        <a href="#">IT</a>
-        <a href="#">AIDS</a>
-        <a href="#">AIML</a>
-        <a href="#">CT</a>
-        <a href="#">CSD</a>
-        <a href="#">BM</a>
-        <a href="#">BT</a>
-        <a href="#">EIE</a>
-        <a href="#">EEE</a>
-        <a href="#">TT</a>
-        <a href="#">FD</a>
+    <div class="types-container">
+        <div class="moutype">
+           <a href="{{ url('/types/industrial') }}"><img src="{{ asset('images/industry.jpg') }}"><h3>INDUSTRIAL MoU</h3></a>
+        </div>
+        <div class="moutype">
+           <a href="{{ url('/types/intercollege') }}"><img src="{{ asset('images/college.jpg') }}"><h3>INTERCOLLEGE MoU</h3></a>
+        </div>
+        <div class="moutype">
+           <a href="{{ url('/types/department-mou') }}"><img src="{{ asset('images/dept.jpg') }}"><h3>DEPARTMENT MoU</h3></a>
+        </div>
     </div>

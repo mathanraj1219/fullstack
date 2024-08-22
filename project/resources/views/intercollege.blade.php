@@ -27,6 +27,15 @@
                     <th>End Date</th>
                 </tr>
             </thead>
-            
+            <tbody>
+                @foreach ($data as $mou)
+                <tr>
+                    <td> {{ $mou['name'] }}</td>
+                    <td> {{ $mou['company_name'] }} </td>
+                    <td> {{ $mou['start_date'] }} </td>
+                    <td> {{ $mou['end_date'] }} </td>
+                </tr>
+                @endforeach
+            </tbody>
         </table>
     </div>

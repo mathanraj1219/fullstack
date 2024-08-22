@@ -4,25 +4,23 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MoUController;
 
 
-Route::get('/', function () {
-    return view('dashboard');
-});
-Route::get('/',[MoUController::class,'index']);
-Route::get('/types',function() {
-    return view('department');
-});
+Route::get('/', [MoUController::class, 'index'])->name('home');
 
-Route::get('/MoUs',function() {
-    return view('mou');
-}); 
 
-Route::get('/types/industrial',function(){
-    return view('industrial');
-});
-Route::get('/types/intercollege',function(){
-    return view('intercollege');
-});
+Route::get('/types', function() {
+   return view('types');
+})->name('types');
 
-Route::get('/types/department-mou',function(){
-    return view('departmentmou');
-});
+
+Route::get('/MoUs',[MoUController::class,'selectcolumns'])->name('mous');
+
+Route::get('/types/industrial', [MoUController::class, 'industrial'])->name('types.industrial');
+
+Route::get('/types/intercollege', [MoUController::class, 'intercollege'])->name('types.intercollege');
+
+
+Route::get('/types/department-mou', function() {
+   return view('departmentmou');
+})->name('types.departmentmou');
+
+
