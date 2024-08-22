@@ -17,14 +17,16 @@
             <li><a href="#">Logout</a></li>
         </ul>
     </nav>
-    <div class="types-container">
-        <div class="moutype">
-           <a href="{{ url('/types/industrial') }}"><img src="{{ asset('images/industry.jpg') }}"><h3>INDUSTRIAL MoU</h3></a>
-        </div>
-        <div class="moutype">
-           <a href="{{ url('/types/intercollege') }}"><img src="{{ asset('images/college.jpg') }}"><h3>INTERCOLLEGE MoU</h3></a>
-        </div>
-        <div class="moutype">
-           <a href="{{ url('/types/department-mou') }}"><img src="{{ asset('images/dept.jpg') }}"><h3>DEPARTMENT MoU</h3></a>
-        </div>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name of the MoU</th>
+                    <th>Company Name</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                </tr>
+            </thead>
+            
+        </table>
     </div>

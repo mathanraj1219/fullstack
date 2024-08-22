@@ -13,19 +13,20 @@
         <ul>
             <li><a href="{{ url('/') }}">Home</a></li>
             <li><a href="{{ url('/MoUs') }}">MoUs</a></li>
-            <li><a href="{{ url('/departments') }}">Departments</a></li>
-            <li><a href="{{ url('/outcomes') }}">Outcomes</a></li>
+            <li><a href="{{ url('/types') }}">Types</a></li>
             <li><a href="#">Logout</a></li>
         </ul>
     </nav>
     <div class="table-container">
         <table>
             <thead>
-                <th> Serial Number </th>
-                <th> MOU </th>
-                <th> Company Name </th>
-                <th> Start Date </th>
-                <th> End Date </th>    
+                <tr>
+                    <th>Name of the MoU</th>
+                    <th>Company Name</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                </tr>
             </thead>
+            
         </table>
     </div>

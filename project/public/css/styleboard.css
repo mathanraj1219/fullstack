@@ -165,4 +165,17 @@ table {
       font-weight: bold;
     }
   }
+.types-container img{
+  height: 400px;
+  width:550px;
+  margin-top: 20%;
+  display: flex;
 
+}
+
+.types-container{
+  display: flex;
+}
+.moutype{
+  margin: 15px;
+}
