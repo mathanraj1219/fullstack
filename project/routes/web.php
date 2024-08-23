@@ -22,5 +22,3 @@ Route::get('/types/intercollege', [MoUController::class, 'intercollege'])->name(
 Route::get('/types/department-mou', function() {
    return view('departmentmou');
 })->name('types.departmentmou');
-
-
