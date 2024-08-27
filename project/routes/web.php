@@ -22,3 +22,14 @@ Route::get('/types/intercollege', [MoUController::class, 'intercollege'])->name(
 Route::get('/types/department-mou', function() {
    return view('departmentmou');
 })->name('types.departmentmou');
+
+
+Route::get('/mous/manage', [MouController::class, 'manage']);
+Route::post('/mous/store', [MouController::class, 'store']);
+Route::delete('/mous/delete/{id}', [MouController::class, 'destroy']);
+
+Route::post('/mous', [MouController::class, 'store'])->name('mous.store');
+Route::delete('/mous', [MouController::class, 'destroy'])->name('mous.destroy');
+
+
+

@@ -1,12 +1,10 @@
 <?php
-
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use App\Models\Mou;
+use App\Models\mou;
 
 class RenewalReminder extends Mailable
 {
@@ -21,8 +19,12 @@ class RenewalReminder extends Mailable
 
     public function build()
     {
+        $subject = $this->mou->end_date < now() 
+            ? 'MoU Expired: ' . $this->mou->name 
+            : 'Renewal Reminder for MoU: ' . $this->mou->name;
+
         return $this->view('emails.renewal-reminder')
-                    ->subject('Renewal Reminder for MoU: ' . $this->mou->title)
+                    ->subject($subject)
                     ->with(['mou' => $this->mou]);
     }
 }

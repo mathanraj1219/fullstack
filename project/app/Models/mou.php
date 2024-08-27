@@ -14,7 +14,7 @@ class Mou extends Model
     protected $fillable = [
         'name',
         'departments',
-        'comany_name',
+        'company_name',
         'type',
         'start_date',
         'end_date',
