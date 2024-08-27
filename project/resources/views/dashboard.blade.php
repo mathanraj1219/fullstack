@@ -40,6 +40,7 @@
                     <th>Company Name</th>
                     <th>Start Date</th>
                     <th>End Date</th>
+                    <th> Renewal </th>
                 </tr>
             </thead>
             <tbody>
@@ -51,6 +52,7 @@
                     <td>{{ $mou['company_name'] }}</td>
                     <td>{{ $mou['start_date'] }}</td>
                     <td>{{ $mou['end_date'] }}</td>
+                    <td> <a href="#"> Request Renewal </a></td>
                 </tr>
                 @endforeach
             </tbody>

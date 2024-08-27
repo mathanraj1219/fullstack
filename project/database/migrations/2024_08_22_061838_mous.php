@@ -17,8 +17,11 @@ return new class extends Migration
             $table->string('name');
             $table->string('departments');
             $table->string('comany_name');
+            $table->string('type');
             $table->date('start_date');
             $table->date('end_date');
+            $table->string('recipient_email');
+            $table->timestamps();
         });
     }
 
@@ -28,5 +31,6 @@ return new class extends Migration
     public function down(): void
     {
         //
+        Schema::dropIfExists('mous');
     }
 };

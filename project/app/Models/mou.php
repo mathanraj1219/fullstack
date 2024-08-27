@@ -5,7 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class mou extends Model
+class Mou extends Model
 {
     use HasFactory;
+
+    protected $table = 'mous';
+
+    protected $fillable = [
+        'name',
+        'departments',
+        'comany_name',
+        'type',
+        'start_date',
+        'end_date',
+        'recipient_email',
+    ];
 }
+
+
