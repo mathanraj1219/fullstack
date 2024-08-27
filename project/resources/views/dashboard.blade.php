@@ -13,6 +13,7 @@
                     <th>Company Name</th>
                     <th>Start Date</th>
                     <th>End Date</th>
+                    <th>PDF</th> <!-- New Column -->
                 </tr>
             </thead>
             <tbody>
@@ -24,6 +25,9 @@
                     <td>{{ $mou['company_name'] }}</td>
                     <td>{{ $mou['start_date'] }}</td>
                     <td>{{ $mou['end_date'] }}</td>
+                    <td>
+                        <a href="{{ asset('storage/'.$mou['pdf_file']) }}" target="_blank">View PDF</a> <!-- New Link -->
+                    </td>
                 </tr>
                 @endforeach
             </tbody>

@@ -6,13 +6,17 @@
         <table>
             <thead>
                 <th> MOU </th>
-                <th> Type </th>    
+                <th> Type </th> 
+                <th> PDF </th>   
             </thead>
             <tbody>
                 @foreach ($data as $mou)
                 <tr>
                     <td>{{ $mou['name'] }}</td>
                     <td>{{ $mou['type'] }}</td>
+                    <td>
+                        <a href="{{ asset('storage/'.$mou['pdf_file']) }}" target="_blank">View PDF</a> <!-- New Link -->
+                    </td>
                 </tr>
                 @endforeach
             </tbody>

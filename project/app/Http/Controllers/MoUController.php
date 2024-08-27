@@ -19,19 +19,19 @@ class MoUController extends Controller
     }
     public function selectcolumns()
     {
-        $data = mou::select('name','type')->get();
+        $data = mou::select('name','type','pdf_file')->get();
         return view('mou',compact('data'));
     }
     public function industrial()
     {
         $today = Carbon::today();
-        $data = mou::where('type','industrial') ->where('end_date','>=',$today)->get();
+        $data = mou::where('type','industrial','pdf_file') ->where('end_date','>=',$today)->get();
         return view('industrial',compact('data'));
     }
     public function intercollege()
     {
         $today = Carbon::today();
-        $data = mou::where('type','intercollege') ->where('end_date','>=',$today)->get();
+        $data = mou::where('type','intercollege','pdf_file') ->where('end_date','>=',$today)->get();
         return view('intercollege',compact('data'));
     }
 
@@ -52,8 +52,11 @@ class MoUController extends Controller
             'start_date' => 'required|date',
             'end_date' => 'required|date',
             'recipient_email' => 'required|email|max:255',
+            'pdf_file'=>'required|mimes:pdf|max:2048'
         ]);
-
+        if ($request->hasFile('pdf_file')) {
+            $fileName = $request->file('pdf_file')->store('pdfs', 'public');
+        }        
         mou::create([
             'name' => $request->name,
             'departments' => $request->departments,
@@ -62,8 +65,9 @@ class MoUController extends Controller
             'start_date' => $request->start_date,
             'end_date' => $request->end_date,
             'recipient_email' => $request->recipient_email,
+            'pdf_file'=>$fileName,
         ]);
-        
+        return redirect()->back()->with('success', 'MoU added successfully!');
     }   
         
 
@@ -71,14 +75,11 @@ class MoUController extends Controller
     {
         $mou = mou::findOrFail($request->mou_id);
         $mou->delete();
-
-        return redirect()->route('mous.manage')->with('success', 'MoU deleted successfully!');
+        return redirect()->back()->with('success', 'MoU deleted successfully!');
     }
 
 
 }
-
-
 
 
 

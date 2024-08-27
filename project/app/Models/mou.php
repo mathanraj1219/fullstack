@@ -19,6 +19,7 @@ class Mou extends Model
         'start_date',
         'end_date',
         'recipient_email',
+        'pdf_file',
     ];
 }
 

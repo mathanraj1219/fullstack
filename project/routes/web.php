@@ -24,12 +24,13 @@ Route::get('/types/department-mou', function() {
 })->name('types.departmentmou');
 
 
-Route::get('/mous/manage', [MouController::class, 'manage']);
-Route::post('/mous/store', [MouController::class, 'store']);
-Route::delete('/mous/delete/{id}', [MouController::class, 'destroy']);
 
-Route::post('/mous', [MouController::class, 'store'])->name('mous.store');
-Route::delete('/mous', [MouController::class, 'destroy'])->name('mous.destroy');
+Route::get('/mous/manage', [MoUController::class, 'manage'])->name('mous.manage');
 
+// Route to handle the storage of a new MoU
+Route::post('/mous/store', [MoUController::class, 'store'])->name('mous.store');
+
+// Route to handle the deletion of an existing MoU
+Route::delete('/mous/delete', [MoUController::class, 'destroy'])->name('mous.destroy');
 
 

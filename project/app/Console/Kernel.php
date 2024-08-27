@@ -19,7 +19,4 @@ class Kernel extends ConsoleKernel
     $schedule->command('mous:check-expiration')->daily();
 }
 
-
-
-
 }
