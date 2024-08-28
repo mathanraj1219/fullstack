@@ -18,6 +18,8 @@ Route::get('/types/industrial', [MoUController::class, 'industrial'])->name('typ
 
 Route::get('/types/intercollege', [MoUController::class, 'intercollege'])->name('types.intercollege');
 
+Route::get('/department-mou/{department}', [MoUController::class, 'showDepartmentMoUs'])->name('department.mous');
+
 
 Route::get('/types/department-mou', function() {
    return view('departmentmou');

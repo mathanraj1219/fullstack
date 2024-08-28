@@ -35,6 +35,20 @@ class MoUController extends Controller
         return view('intercollege',compact('data'));
     }
 
+    public function showDepartmentMoUs($department)
+    {
+        $today = Carbon::today();
+
+        // Retrieve MoUs that are active and relevant to the specified department
+        $mous = mou::where('departments', 'LIKE', "%$department%")
+                    ->where('end_date', '>=', $today)
+                    ->get();
+
+        // Pass the department name and MoUs to the view
+        return view('mous.department', compact('department', 'mous'));
+    }
+
+
     // Method to show the "Add/Delete MoU" page
     public function manage()
     {

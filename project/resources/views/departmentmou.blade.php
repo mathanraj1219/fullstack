@@ -1,22 +1,24 @@
-'@extends('layouts/app')
+@extends('layouts/app')
 @section('title','Departments - MoU')
 @section('content')
 
 <div class="dept">
-        <a href="#">CSE</a>
-        <a href="#">CSBS</a>
-        <a href="#">ECE</a>
-        <a href="#">IT</a>
-        <a href="#">AIDS</a>
-        <a href="#">AIML</a>
-        <a href="#">CT</a>
-        <a href="#">CSD</a>
-        <a href="#">BM</a>
-        <a href="#">BT</a>
-        <a href="#">EIE</a>
-        <a href="#">EEE</a>
-        <a href="#">TT</a>
-        <a href="#">FD</a>
+    <a href="{{ url('/department-mou/aids') }}">AIDS</a>
+    <a href="{{ url('/department-mou/aiml') }}">AIML</a>
+    <a href="{{ url('/department-mou/bm') }}">BM</a>
+    <a href="{{ url('/department-mou/bt') }}">BT</a>
+    <a href="{{ url('/department-mou/csbs') }}">CSBS</a>
+    <a href="{{ url('/department-mou/csd') }}">CSD</a>
+    <a href="{{ url('/department-mou/cse') }}">CSE</a>
+    <a href="{{ url('/department-mou/ct') }}">CT</a>
+    <a href="{{ url('/department-mou/ece') }}">ECE</a>
+    <a href="{{ url('/department-mou/eee') }}">EEE</a>
+    <a href="{{ url('/department-mou/eie') }}">EIE</a>
+    <a href="{{ url('/department-mou/fd') }}">FD</a>
+    <a href="{{ url('/department-mou/it') }}">IT</a>
+    <a href="{{ url('/department-mou/tt') }}">TT</a>
+</div>
 
-    </div>
 @endsection
+
+

@@ -5,6 +5,7 @@
     <div class="table-container">
         <table>
             <thead>
+                <th> Serial Number </th>
                 <th> MOU </th>
                 <th> Type </th> 
                 <th> PDF </th>   
@@ -12,6 +13,7 @@
             <tbody>
                 @foreach ($data as $mou)
                 <tr>
+                    <td>{{ $loop->index + 1 }}</td>
                     <td>{{ $mou['name'] }}</td>
                     <td>{{ $mou['type'] }}</td>
                     <td>
