@@ -19,7 +19,8 @@ class MoUController extends Controller
     }
     public function selectcolumns()
     {
-        $data = mou::select('name','type','pdf_file')->get();
+        $today = Carbon::today();
+        $data = mou::select('name','type','pdf_file') ->where('end_date','>=',$today)->get();
         return view('mou',compact('data'));
     }
     public function industrial()

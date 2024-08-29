@@ -22,7 +22,7 @@
             <tbody>
                 @foreach($livemous as $mou)
                 <tr>
-                    <td>{{ $loop->iteration + ($livemous->currentPage() - 1) * $livemous->perPage() }}</td>
+                    <td>{{ $loop->index+1 }}</td>
                     <td>{{ $mou->name }}</td>
                     <td>{{ $mou->departments }}</td>
                     <td>{{ $mou->company_name }}</td>
@@ -57,7 +57,7 @@
             <tbody>
                 @foreach($expiredmous as $mou)
                 <tr>
-                    <td>{{ $loop->iteration + ($expiredmous->currentPage() - 1) * $expiredmous->perPage() }}</td>
+                    <td>{{ $loop->index+1 }}</td>
                     <td>{{ $mou->name }}</td>
                     <td>{{ $mou->departments }}</td>
                     <td>{{ $mou->company_name }}</td>
