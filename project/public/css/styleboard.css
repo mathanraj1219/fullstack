@@ -50,7 +50,6 @@ nav ul li a:hover {
     background-color: #3700b3;
 }
 
-
 table {
     width: 100%;
     border-collapse: collapse;
@@ -70,6 +69,8 @@ table {
     padding: 10px;
     text-align: left;
   }
+
+  
 .types-container img{
   height: 400px;
   width:550px;

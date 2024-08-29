@@ -11,6 +11,7 @@ Route::get('/types', function() {
    return view('types');
 })->name('types');
 
+Route::get('/outcomes',[MoUController::class,'outcomes'])->name('outcomes');
 
 Route::get('/MoUs',[MoUController::class,'selectcolumns'])->name('mous');
 

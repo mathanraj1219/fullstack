@@ -13,6 +13,7 @@
            <li><a href="{{ url('/') }}">Home</a></li>
            <li><a href="{{ url('/MoUs') }}">MoUs</a></li>
            <li><a href="{{ url('/types') }}">Types</a></li>
+           <li><a href="{{ url('/outcomes') }}">OutComes</a></li>
            <li><a href="{{ url('/mous/manage') }}">Add/Delete MoU</a></li> <!-- New option -->
            <li><a href="#">Logout</a></li>
        </ul>

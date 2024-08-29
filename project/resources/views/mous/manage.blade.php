@@ -37,6 +37,9 @@
                    <label for="type">Type:</label><br>
                    <input type="text" id="type" name="type" class="form-input" required><br><br>
 
+                   <label for="outcomes">OutComes:</label><br>
+                   <input type="text" id="outcome" name=outcomes class="form-input" required><br><br>
+                   
                    <label for="start_date">Start Date:</label><br>
                    <input type="date" id="start_date" name="start_date" class="form-input" required><br><br>
 

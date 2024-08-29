@@ -16,6 +16,7 @@ class Mou extends Model
         'departments',
         'company_name',
         'type',
+        'outcome',
         'start_date',
         'end_date',
         'recipient_email',
