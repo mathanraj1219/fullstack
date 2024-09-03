@@ -1,7 +1,6 @@
 body{
   background-color: lavender;
 }
-
 nav {
     display: flex;
     justify-content: space-between;
@@ -10,33 +9,22 @@ nav {
     padding: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
-
-
 nav img {
     height: 40px;
     width: auto;
     border-radius: 5px;
     margin-right: 10px;
 }
-
-
 nav ul {
     display: flex;
     list-style: none;
     margin: 0;
     padding: 0;
 }
-
-
 nav ul li {
     position: relative;
     margin-right: 15px;
 }
-
-
-
-
-
 nav ul li a {
     color: #fff;
     text-decoration: none;
@@ -44,18 +32,16 @@ nav ul li a {
     border-radius: 5px;
     transition: background-color 0.3s ease;
 }
-
-
 nav ul li a:hover {
-    background-color: #3700b3;
+    background-color: rgb(98, 84, 112);
 }
+
 
 table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
   }
- 
   thead th {
     background-color: rgb(72, 36, 108);
     color: white;
@@ -63,14 +49,11 @@ table {
     text-align: left;
     padding: 10px;
   }
- 
- 
   tbody td {
     padding: 10px;
     text-align: left;
   }
 
-  
 .types-container img{
   height: 400px;
   width:550px;
@@ -78,13 +61,14 @@ table {
   display: flex;
 
 }
-
 .types-container{
   display: flex;
 }
+
 .moutype{
   margin: 15px;
 }
+
 
 .dept {
   display: flex;
@@ -95,7 +79,6 @@ table {
   max-width: 80%;
   margin-top: 250px;
 }
-
 .dept a {
   padding: 10px 20px;
   grid-template-columns: repeat(4,1fr);
@@ -111,7 +94,6 @@ table {
   text-transform: uppercase;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
 .dept a:hover {
   background-color: rgb(72, 36, 108);
   transform: scale(1.05);
