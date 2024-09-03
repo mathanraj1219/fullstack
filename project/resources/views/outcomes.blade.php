@@ -2,7 +2,7 @@
 @section('title', 'MoU - OutComes')
 @section('content')
 
-<h4>Placement - MoUs</h4>
+<h4>Placements - MoUs</h4>
 <div class="table-container">
         <table>
             <thead>

@@ -3,14 +3,12 @@
 @section('title', 'Manage MoUs')
 
 @section('content')
-  <!-- Display success message if available -->
   @if (session('success'))
       <div class="alert alert-success">
           {{ session('success') }}
       </div>
   @endif
 
-  <!-- Display error message if available -->
   @if (session('error'))
       <div class="alert alert-danger">
           {{ session('error') }}
@@ -18,12 +16,10 @@
   @endif
 
   <div class="manage-container">
-      <!-- Form for adding a new MoU -->
       <div class="manage-column">
           <h2>Add New MoU</h2>
           <form action="{{ route('mous.store') }}" method="POST" enctype="multipart/form-data">
               @csrf
-              <!-- Form fields -->
                <div class="detail">
                    <label for="name">Name:</label><br>
                    <input type="text" id="name" name="name" class="form-input" required><br><br>
@@ -37,8 +33,8 @@
                    <label for="type">Type:</label><br>
                    <input type="text" id="type" name="type" class="form-input" required><br><br>
 
-                   <label for="outcomes">OutComes:</label><br>
-                   <input type="text" id="outcome" name=outcomes class="form-input" required><br><br>
+                   <label for="outcome">Outcomes:</label><br>
+                   <input type="text" id="outcome" name="outcome" class="form-input" required><br><br>
                    
                    <label for="start_date">Start Date:</label><br>
                    <input type="date" id="start_date" name="start_date" class="form-input" required><br><br>
@@ -57,7 +53,6 @@
           </form>
       </div>
 
-      <!-- Form for deleting an existing MoU -->
       <div class="manage-column">
           <h2>Delete MoU</h2>
           <form action="{{ route('mous.destroy') }}" method="POST">
@@ -75,5 +70,3 @@
       </div>
   </div>
 @endsection
-
-

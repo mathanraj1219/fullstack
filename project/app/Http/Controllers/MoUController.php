@@ -1,66 +1,67 @@
 <?php
 
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\mou;
+use App\Models\mou; // Ensure this matches your model file name
 use Carbon\Carbon;
 
 class MoUController extends Controller
 {
-    
     public function index()
     {
         $today = Carbon::today();
-        $livemous = mou::where('end_date','>=',$today)->get();
-        $expiredmous = mou::where('end_date','<',$today)->get();
-        return view('dashboard', compact('livemous','expiredmous'));
+        $livemous = mou::where('end_date', '>=', $today)->get();
+        $expiredmous = mou::where('end_date', '<', $today)->get();
+        return view('dashboard', compact('livemous', 'expiredmous'));
     }
+
     public function selectcolumns()
     {
         $today = Carbon::today();
-        $data = mou::select('name','type','pdf_file') ->where('end_date','>=',$today)->get();
-        return view('mou',compact('data'));
+        $data = mou::select('name', 'type', 'pdf_file')
+                   ->where('end_date', '>=', $today)
+                   ->get();
+        return view('mou', compact('data'));
     }
 
     public function outcomes()
-{
-    $today = Carbon::today();
+    {
+        $today = Carbon::today();
 
-    // Retrieve all active MoUs
-    $data = mou::select('name', 'departments', 'company_name', 'pdf_file', 'outcome')
-               ->where('end_date', '>=', $today)
-               ->paginate(5);
+        // Retrieve all active MoUs
+        $data = mou::select('name', 'departments', 'company_name', 'pdf_file', 'outcome')
+                   ->where('end_date', '>=', $today)
+                   ->get();
 
-    // Separate data into categories
-    $placementData = $data->filter(function ($mou) {
-        return stripos($mou->outcome, 'PLACEMENT') !== false;
-    });
+        // Separate data into categories
+        $placementData = $data->filter(function ($mou) {
+            return stripos($mou->outcome, 'PLACEMENT') !== false;
+        });
 
-    $internshipData = $data->filter(function ($mou) {
-        return stripos($mou->outcome, 'INTERNSHIP') !== false;
-    });
+        $internshipData = $data->filter(function ($mou) {
+            return stripos($mou->outcome, 'INTERNSHIP') !== false;
+        });
 
-    return view('outcomes', compact('placementData', 'internshipData','data'));
-}
-
-
-
-
-
+        return view('outcomes', compact('placementData', 'internshipData', 'data'));
+    }
 
     public function industrial()
     {
         $today = Carbon::today();
-        $data = mou::where('type','industrial','pdf_file') ->where('end_date','>=',$today)->get();
-        return view('industrial',compact('data'));
+        $data = mou::where('type', 'industrial')
+                   ->where('end_date', '>=', $today)
+                   ->get();
+        return view('industrial', compact('data'));
     }
+
     public function intercollege()
     {
         $today = Carbon::today();
-        $data = mou::where('type','intercollege','pdf_file') ->where('end_date','>=',$today)->get();
-        return view('intercollege',compact('data'));
+        $data = mou::where('type', 'intercollege')
+                   ->where('end_date', '>=', $today)
+                   ->get();
+        return view('intercollege', compact('data'));
     }
 
     public function showDepartmentMoUs($department)
@@ -69,13 +70,12 @@ class MoUController extends Controller
 
         // Retrieve MoUs that are active and relevant to the specified department
         $mous = mou::where('departments', 'LIKE', "%$department%")
-                    ->where('end_date', '>=', $today)
-                    ->get();
+                   ->where('end_date', '>=', $today)
+                   ->get();
 
         // Pass the department name and MoUs to the view
         return view('mous.department', compact('department', 'mous'));
     }
-
 
     // Method to show the "Add/Delete MoU" page
     public function manage()
@@ -86,6 +86,7 @@ class MoUController extends Controller
 
     public function store(Request $request)
     {
+        // Validate the request
         $request->validate([
             'name' => 'required|string|max:255',
             'departments' => 'required|string|max:255',
@@ -95,27 +96,33 @@ class MoUController extends Controller
             'start_date' => 'required|date',
             'end_date' => 'required|date',
             'recipient_email' => 'required|email|max:255',
-            'pdf_file'=>'required|mimes:pdf|max:2048'
+            'pdf_file' => 'required|mimes:pdf|max:2048',
         ]);
 
-
+        // Handle the file upload
+        $fileName = null;
         if ($request->hasFile('pdf_file')) {
             $fileName = $request->file('pdf_file')->store('pdfs', 'public');
-        }        
-        mou::create([
-            'name' => strtoupper($request->name),
-            'departments' => strtoupper($request->departments),
-            'company_name' => strtoupper($request->company_name),
-            'type' => strtoupper($request->type),
-            'outcome' => strtoupper($request->outcome),
-            'start_date' => $request->start_date,
-            'end_date' => $request->end_date,
-            'recipient_email' => $request->recipient_email,
-            'pdf_file'=>$fileName,
-        ]);
+        }
+
+        try {
+            mou::create([
+                'name' => strtoupper($request->name),
+                'departments' => strtoupper($request->departments),
+                'company_name' => strtoupper($request->company_name),
+                'type' => strtoupper($request->type),
+                'outcome' => strtoupper($request->outcome),
+                'start_date' => $request->start_date,
+                'end_date' => $request->end_date,
+                'recipient_email' => $request->recipient_email,
+                'pdf_file' => $fileName,
+            ]);
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(['error' => 'Failed to add MoU.']);
+        }
+    
         return redirect()->back()->with('success', 'MoU added successfully!');
-    }   
-        
+    }
 
     public function destroy(Request $request)
     {
@@ -123,9 +130,4 @@ class MoUController extends Controller
         $mou->delete();
         return redirect()->back()->with('success', 'MoU deleted successfully!');
     }
-
-
 }
-
-
-
