@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\mou; // Ensure this matches your model file name
+use App\Models\mou;
 use Carbon\Carbon;
 
 class MoUController extends Controller
@@ -19,10 +19,34 @@ class MoUController extends Controller
     public function selectcolumns()
     {
         $today = Carbon::today();
-        $data = mou::select('name','departments','company_name', 'pdf_file')
-                   ->where('end_date', '>=', $today)
-                   ->get();
-        return view('mou', compact('data'));
+
+        $allDepartments = mou::pluck('departments')->toArray();
+        $departmentsArray = [];
+
+        foreach ($allDepartments as $departments) {
+            $splitDepartments = explode(',', $departments);
+            foreach ($splitDepartments as $department) {
+                $departmentsArray[] = trim($department);
+            }
+        }
+
+        $departments = array_unique($departmentsArray);
+        sort($departments);
+
+        // Fetch all unique company names for filter options
+        $companies = mou::distinct()->orderBy('company_name')->pluck('company_name');
+
+        $query = mou::select('name', 'departments', 'company_name', 'pdf_file')
+                    ->where('end_date', '>=', $today);
+
+        if (request()->has('department') && request()->department != '') {
+            $query->where('departments', 'LIKE', '%' . request()->department . '%');
+        }
+        if (request()->has('company_name') && request()->company_name != '') {
+            $query->where('company_name', request()->company_name);
+        }
+        $data = $query->get();
+        return view('mou', compact('data', 'departments', 'companies'));
     }
 
     public function outcomes()
@@ -77,7 +101,6 @@ class MoUController extends Controller
         return view('mous.department', compact('department', 'mous'));
     }
 
-    // Method to show the "Add/Delete MoU" page
     public function manage()
     {
         $mous = mou::all(); // Fetch all MoUs for deletion dropdown

@@ -13,7 +13,7 @@ Route::get('/types', function() {
 
 Route::get('/outcomes',[MoUController::class,'outcomes'])->name('outcomes');
 
-Route::get('/MoUs',[MoUController::class,'selectcolumns'])->name('mous');
+Route::get('/MoUs', [MoUController::class, 'selectcolumns'])->name('mous.index');
 
 Route::get('/types/industrial', [MoUController::class, 'industrial'])->name('types.industrial');
 
