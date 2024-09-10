@@ -7,7 +7,6 @@
             <thead>
                 <th> Serial Number </th>
                 <th> MOU </th>
-                <th> Type </th> 
                 <th> PDF </th>   
             </thead>
             <tbody>
@@ -15,7 +14,6 @@
                 <tr>
                     <td>{{ $loop->index + 1 }}</td>
                     <td>{{ $mou['name'] }}</td>
-                    <td>{{ $mou['type'] }}</td>
                     <td>
                         <a href="{{ asset('storage/'.$mou['pdf_file']) }}" target="_blank">View PDF</a> <!-- New Link -->
                     </td>
