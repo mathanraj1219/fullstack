@@ -8,16 +8,12 @@
     .table-container table {
         border-bottom: 40px solid rgb(72,36,108); /* Adjust color and thickness as needed */
     }
-
-   
 </style>
 
 
 <div class="table-container">
     <h2>List of MoUs</h2>
 
-
-    <!-- Filter Form -->
     <form action="{{ route('mous.index') }}" method="GET">
         <div class="filters">
             <label for="department">Filter by Department:</label>
@@ -40,7 +36,6 @@
             <button type="submit">Filter</button>
         </div>
     </form>
-
 
     <!-- MoUs Table -->
     @if($data->isEmpty())
@@ -72,6 +67,5 @@
     </table>
     @endif
 </div>
-
 
 @endsection
