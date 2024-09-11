@@ -2,8 +2,9 @@
 @section('title', 'Memorandum of Understanding')
 @section('content')
 
-<h4>Live MoUs</h4>
+
 <div class="table-container">
+<h2>Live - MoUs</h2>
     @if($livemous->isEmpty())
        <p>No live MoUs found.</p>
    @else
@@ -40,8 +41,8 @@
 </div>
 
 
-<h4>Expired MoUs</h4>
 <div class="table-container">
+    <h2>Expired - MoUs</h2>
     @if($expiredmous->isEmpty())
        <p>No expired MoUs found.</p>
    @else 
