@@ -2,10 +2,6 @@
 @section('title', 'Memorandum of Understanding')
 @section('content')
 
-<link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-
 <h4>Live MoUs</h4>
 <div class="table-container">
     @if($livemous->isEmpty())
@@ -112,57 +108,5 @@ $(document).ready(function() {
     });
 });
 </script>
-
-
-<style>
-
-.table-container table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-.table-container thead{
-    background-color: rgb(72, 36, 108);
-    color: white;
-    font-weight: bold;
-    text-align: left;
-    padding: 10px;
-}
-.table-container tbody td{
-    padding: 10px;
-    text-align: left;
-    background-color: lavender;
-}
-
-.table-container th {
-    background-color: rgb(72, 36, 108);
-    color: white;
-    font-weight: bold;
-    text-align: left;
-    padding: 10px;
-}
-
-.dataTables_wrapper .dataTables_paginate .paginate_button {
-    padding: 5px 10px;
-    margin: 0 2px;
-    border: 1px solid rgb(72, 36, 108);
-    background-color: lavender;
-    color: rgb(72, 36, 108);
-    cursor: pointer;
-    border-radius: 4px;
-}
-
-.dataTables_wrapper .dataTables_paginate .paginate_button.current {
-    padding: 5px 10px;
-    margin: 0 2px;
-    border: 1px solid rgb(72, 36, 108);
-    background-color: lavender;
-    color: lavender;
-    cursor: pointer;
-    border-radius: 4px;
-}
-
-</style>
 
 @endsection

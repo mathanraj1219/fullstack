@@ -4,7 +4,7 @@
 
 <h4>Placements - MoUs</h4>
 <div class="table-container">
-        <table>
+        <table id="placement">
             <thead>
                 <tr>
                     <th>Serial Number</th>
@@ -32,7 +32,7 @@
 
 <h4>Internships - MoUs</h4>
 <div class="table-container">
-        <table>
+        <table id="internship">
             <thead>
                 <tr>
                     <th>Serial Number</th>
@@ -57,6 +57,42 @@
             </tbody>
         </table>
 </div>
+
+<script>
+$(document).ready(function() {
+    $('#placement').DataTable({
+        "paging": true,
+        "pageLength": 5,
+        "lengthChange": false,
+        "searching": false,
+        "info": false,
+        "ordering": false,
+        "language": {
+            "paginate": {
+                "previous": "<",
+                "next": ">"
+            }
+        }
+    });
+
+
+$('#internship').DataTable({
+        "paging": true,
+        "pageLength": 5,
+        "lengthChange": false,
+        "searching": false,
+        "info": false,
+        "ordering": false,
+        "language": {
+            "paginate": {
+                "previous": "<",
+                "next": ">"
+            }
+        }
+    });
+});
+</script>
+
 @endsection
 
 

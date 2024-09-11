@@ -218,7 +218,59 @@ button[type="submit"]:active {
   }
 }
 
-.department-mous h2{
-  font-family: 'Times New Roman', Times, serif;
-  font-weight: 500;
+
+
+/* paginate */
+
+.table-container table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.table-container thead{
+  background-color: rgb(72, 36, 108);
+  color: white;
+  font-weight: bold;
+  text-align: left;
+  padding: 10px;
+}
+.table-container tbody td{
+  padding: 10px;
+  text-align: left;
+  background-color: lavender;
+}
+
+
+
+.table-container th {
+  background-color: rgb(72, 36, 108);
+  color: white;
+  font-weight: bold;
+  text-align: left;
+  padding: 10px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  padding: 5px 10px;
+  margin: 0 2px;
+  border: 1px solid rgb(72, 36, 108);
+  background-color: lavender;
+  color: rgb(72, 36, 108);
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover{
+  background-color: rgb(72, 36, 108);
+  color: white;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+  padding: 5px 10px;
+  margin: 0 2px;
+  background-color: rgb(72, 36, 108);
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
 }

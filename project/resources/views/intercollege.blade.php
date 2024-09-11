@@ -3,7 +3,8 @@
 @section('content')
 
     <div class="table-container">
-        <table>
+        <h2>List of Intercollege - MoUs</h2>
+        <table id="table">
             <thead>
                 <tr>
                     <th>Name of the MoU</th>
@@ -28,5 +29,24 @@
             </tbody>
         </table>
     </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#table').DataTable({
+                "paging": true,
+                "pageLength": 15,
+                "lengthChange": false,
+                "searching": false,
+                "info": false,
+                "ordering": false,
+                "language": {
+                    "paginate": {
+                        "previous": "<",
+                        "next": ">"
+                    }
+                }
+            });
+        });
+    </script>
 
 @endsection
